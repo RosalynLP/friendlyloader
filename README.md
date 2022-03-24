@@ -19,13 +19,12 @@ remotes::install_github("RosalynLP/friendlyloader")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This will look for files inside data/ with "apples" or "oranges" in the name, 
+and return a list of possibilities.
 
 ``` r
 library(friendlyloader)
 
-# This will look for files inside data/ with "apples" or "oranges" in the name, 
-# and return a list of possibilities.
 suggest_alternative_files(keywords = c("apples", "oranges"), location = "data/")
 ```
 
