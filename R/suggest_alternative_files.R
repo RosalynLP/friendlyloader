@@ -7,7 +7,7 @@
 #' @param location A character vector with one element
 #' @param recursive Boolean
 #'
-#' @return A character vector with one element
+#' @return A character vector
 #' @export
 #'
 #' @examples
