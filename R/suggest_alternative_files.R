@@ -1,13 +1,14 @@
 #' Suggest alternative files
 #'
 #' Searches for files in `location` containing one of the `keywords`, and returns
-#' a character vector of the possibilties.
+#' a character vector of the possibilties, prompting the user to pick one. Returns
+#' the chosen possibility, or if none is chosen returns NA.
 #'
 #' @param keywords A character vector
 #' @param location A character vector with one element
 #' @param recursive Boolean
 #'
-#' @return A character vector
+#' @return A character vector or NULL
 #' @export
 #'
 #' @examples
@@ -37,7 +38,7 @@ suggest_alternative_files <- function(keywords, location, recursive = TRUE){
     return(possibilities[as.integer(user_choice)])
   },
   warning = function(w){
-    file_choice <- NA
+    file_choice <- NULL
   }
   )
 

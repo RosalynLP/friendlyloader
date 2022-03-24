@@ -14,11 +14,12 @@ suggest_alternative_files(keywords, location, recursive = TRUE)
 \item{recursive}{Boolean}
 }
 \value{
-A character vector with one element
+A character vector or NULL
 }
 \description{
 Searches for files in \code{location} containing one of the \code{keywords}, and returns
-a character vector of the possibilties.
+a character vector of the possibilties, prompting the user to pick one. Returns
+the chosen possibility, or if none is chosen returns NA.
 }
 \examples{
 keywords <- c("apple", "orange")
