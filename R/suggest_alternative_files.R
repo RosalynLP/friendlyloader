@@ -1,4 +1,19 @@
-
+#' Suggest alternative files
+#'
+#' Searches for files in `location` containing one of the `keywords`, and returns
+#' a character vector of the possibilties.
+#'
+#' @param keywords A character vector
+#' @param location A character vector with one element
+#' @param recursive Boolean
+#'
+#' @return A character vector with one element
+#' @export
+#'
+#' @examples
+#' keywords <- c("apple", "orange")
+#' location <- "data/"
+#' suggest_alternative_files(keywords, location)
 suggest_alternative_files <- function(keywords, location, recursive = TRUE){
 
   possibilities <- c()
