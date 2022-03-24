@@ -19,12 +19,15 @@ remotes::install_github("RosalynLP/friendlyloader")
 
 ## Example
 
-This will look for files inside data/ with "apples" or "oranges" in the name, 
-and return a list of possibilities.
+This will look "data/my_apples.csv"
+- If it's there it will return "data/my_apples.csv"
+- If it's not there it will prompt the user with a list of filenames in "data" or subdirectories which include "my" or "apples"
+- If the user selects an alternative, it will return this alternative filepath
+- If the user doesn't select an alternative, an error is thrown
 
 ``` r
 library(friendlyloader)
 
-suggest_alternative_files(keywords = c("apples", "oranges"), location = "data/")
+check_file("data/my_apples.csv")
 ```
 
