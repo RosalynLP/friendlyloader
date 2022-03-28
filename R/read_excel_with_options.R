@@ -43,3 +43,40 @@ read_csv_with_options <- function(filename){
 }
 
 
+
+#' Read custom with options
+#'
+#' Function factory which generates a function for reading in
+#' a particular type of file.
+#'
+#' The method for loading this file type is supplied as
+#' customloader, along with any additional necessary parameters.
+#'
+#' Useful if your file type is not Excel or csv but you still want
+#' a generic function which loads the file but provides alternatives.
+#'
+#' @param customloader Function for reading a given filetype, e.g. readRDS
+#' @param ... Additional parameters to supply to customloader
+#'
+#' @return Function which reads that given filetype but first checks the file
+#' exists and provides alternatives
+#'
+#' @export
+#'
+#' @examples
+#' read_rds_with_options <- read_custom_with_options(readRDS)
+#'
+#' # myrds <- read_rds_with_options("/path/to/rds/myrds.rds")
+#'
+read_custom_with_options <- function(customloader, ...){
+
+  function(filename){
+
+    filename <- check_file(filename)
+    readfile <- customloader(filename, ...)
+
+    return(readfile)
+
+  }
+}
+

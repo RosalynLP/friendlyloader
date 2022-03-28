@@ -3,5 +3,6 @@
 export(check_file)
 export(read_all_excel_sheets)
 export(read_csv_with_options)
+export(read_custom_with_options)
 export(read_excel_with_options)
 export(suggest_alternative_files)
