@@ -1,9 +1,5 @@
-[friendlyloader](https://github.com/RosalynLP/friendlyloader/) 
+#friendlyloader
 ========
-
-<!-- badges: start -->
-![Build status](https://github.com/RosalynLP/friendlyloader/workflows/tests.yml/badge.svg)
-<!-- badges: end -->
 
 The goal of friendlyloader is to help with routine running of scripts 
 where you expect to find a file in a certain location, but where the
