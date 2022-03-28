@@ -6,7 +6,7 @@
 #'
 #' @param keywords A character vector
 #' @param location A character vector with one element
-#' @param recursive Boolean
+#' @param recursive Boolean for whether to recurse into directories to search
 #'
 #' @return A character vector or NULL
 #' @export
