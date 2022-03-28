@@ -22,8 +22,7 @@ check_file <- function(filename){
     message(glue::glue("Could not find file {filename}. Searching for possible alternatives."))
 
     # Get keyword possibilities based off filename
-    keywords <- unlist(lapply(strsplit(gsub('[[:digit:]]+', '', basename(filename)), split = '[-_,.]'),
-                              function(z){ z[!is.na(z) & z != "" & z!="xlsx" & z!="csv"]}))
+    keywords <- get_keywords(filename)
 
     # Suggest alternatives based off keywords
     alternative <- suggest_alternative_files(keywords, dirname(filename))
@@ -40,5 +39,26 @@ check_file <- function(filename){
   } else {
     return(filename)
   }
+
+}
+
+#' Get keywords
+#'
+#' @param filename String to get keywords from
+#'
+#' @return Character vector of keywords obtained from filename
+#' @export
+#'
+#' @examples
+#' get_keywords("my_data apple friend-20220328.csv")
+#'
+get_keywords <- function(filename){
+
+  keywords_to_ignore <- c(NA, "", "xlsx", "csv", "rds", "png", "jpg", "jpeg")
+
+  keywords <- unlist(strsplit(gsub('[[:digit:]]+', '', basename(filename)), split = '[-_,. ]'))
+  keywords <- keywords[!keywords %in% keywords_to_ignore]
+
+  return(keywords)
 
 }
