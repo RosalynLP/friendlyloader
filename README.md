@@ -1,4 +1,4 @@
-[friendlyloader](https://github.com/RosalynLP/friendlyloader/) 
+friendlyloader
 ========
 
 The goal of friendlyloader is to help with routine running of scripts 
