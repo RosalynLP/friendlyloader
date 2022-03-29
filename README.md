@@ -1,10 +1,6 @@
 [friendlyloader](https://github.com/RosalynLP/friendlyloader/) 
 ========
 
-<!-- badges: start -->
-![Build status](https://github.com/RosalynLP/friendlyloader/workflows/tests.yml/badge.svg)
-<!-- badges: end -->
-
 The goal of friendlyloader is to help with routine running of scripts 
 where you expect to find a file in a certain location, but where the
 name of the file can be subject to minor changes, such as a change in 
@@ -22,46 +18,46 @@ remotes::install_github("RosalynLP/friendlyloader")
 
 ### Loading a csv 
 ``` r
-> library(friendlyloader)
+library(friendlyloader)
 
 # Creating test data frame and writing to csv
-> df <- data.frame (Fruit = c("Apple", "Orange", "Pear"), Colour = c("Red", "Orange", "Green"))
-> write.csv("fruits_colours.csv", row.names = FALSE)
+df <- data.frame (Fruit = c("Apple", "Orange", "Pear"), Colour = c("Red", "Orange", "Green"))
+write.csv("fruits_colours.csv", row.names = FALSE)
 
 # Trying to load csv but with slightly wrong filename
-> read_csv_with_options("20220328_fruits_colours.csv")
+read_csv_with_options("20220328_fruits_colours.csv")
 
-Could not find file 20220328_fruits_colours.csv. Searching for possible alternatives.
-[1] "./fruits_colours.csv"
-Should I use one of the above files? Type the number to use, or type 'No' and press Enter.     1
-   Fruit Colour
-1  Apple    Red
-2 Orange Orange
-3   Pear  Green
-> 
+#> Could not find file 20220328_fruits_colours.csv. Searching for possible alternatives.
+#> [1] "./fruits_colours.csv"
+#> Should I use one of the above files? Type the number to use, or type 'No' and press Enter.     1
+#>    Fruit Colour
+#> 1  Apple    Red
+#> 2 Orange Orange
+#> 3   Pear  Green
+#> 
 
 ```
 
 ### Loading the first sheet of an Excel file
 ``` r
-> library(friendlyloader)
+library(friendlyloader)
 
 # Creating test data frame and writing to csv
-> df <- data.frame (Fruit = c("Apple", "Orange", "Pear"), Colour = c("Red", "Orange", "Green"))
-> writexl::write_xlsx(df, "fruits_colours.xlsx")
+df <- data.frame (Fruit = c("Apple", "Orange", "Pear"), Colour = c("Red", "Orange", "Green"))
+writexl::write_xlsx(df, "fruits_colours.xlsx")
 
 # Trying to load csv but with slightly wrong filename
-> read_excel_with_options("fruits-colours.csv")
+read_excel_with_options("fruits-colours.csv")
 
-Could not find file fruits-colours.xlsx. Searching for possible alternatives.
-[1] "./fruits_colours.csv"
-[2] "./fruits_colours.xlsx"
-Should I use one of the above files? Type the number to use, or type 'No' and press Enter.     2
-   Fruit Colour
-1  Apple    Red
-2 Orange Orange
-3   Pear  Green
-> 
+#> Could not find file fruits-colours.xlsx. Searching for possible alternatives.
+#> [1] "./fruits_colours.csv"
+#> [2] "./fruits_colours.xlsx"
+#> Should I use one of the above files? Type the number to use, or type 'No' and press Enter.     2
+#>    Fruit Colour
+#> 1  Apple    Red
+#> 2 Orange Orange
+#> 3   Pear  Green
+#> 
 
 ```
 
