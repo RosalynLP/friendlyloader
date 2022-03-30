@@ -37,7 +37,7 @@ suggest_alternative_files <- function(keywords, location, recursive = TRUE){
 
     # Found alternative files
     message("Should I use one of the files below?")
-    print(tibble(Options = unique(possibilities)))
+    print(tibble::tibble(Options = unique(possibilities)))
     user_choice <- readline(
       prompt="Type the number to use, or type 'No' and press Enter.     "
     )
