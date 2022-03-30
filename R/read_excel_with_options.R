@@ -44,7 +44,7 @@ read_csv_with_options <- function(filename, recursive=TRUE){
 
 
 
-#' Read custom with options
+#' Create loader with options
 #'
 #' Function factory which generates a function for reading in
 #' a particular type of file.
@@ -64,11 +64,11 @@ read_csv_with_options <- function(filename, recursive=TRUE){
 #' @export
 #'
 #' @examples
-#' read_rds_with_options <- read_custom_with_options(readRDS)
+#' read_rds_with_options <- create_loader_with_options(readRDS)
 #'
 #' # myrds <- read_rds_with_options("/path/to/rds/myrds.rds")
 #'
-read_custom_with_options <- function(customloader, recursive=TRUE, ...){
+create_loader_with_options <- function(customloader, recursive=TRUE, ...){
 
   function(filename){
 
