@@ -25,7 +25,9 @@ check_file <- function(filename, recursive=TRUE){
     keywords <- get_keywords(filename)
 
     # Suggest alternatives based off keywords
-    alternative <- suggest_alternative_files(keywords, dirname(filename), recursive=recursive)
+    alternative <- suggest_alternative_files(keywords,
+                                             dirname(filename),
+                                             recursive=recursive)
 
     if(is.null(alternative)){
 

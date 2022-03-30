@@ -15,7 +15,9 @@
 #'
 read_excel_with_options <- function(filename, recursive=TRUE){
 
-  filename <- check_file(filename, recursive=recursive)
+  filename <- check_file(filename,
+                         recursive=recursive)
+
   readfile <- readxl::read_excel(filename)
 
   return(readfile)
@@ -36,8 +38,13 @@ read_excel_with_options <- function(filename, recursive=TRUE){
 #'
 read_csv_with_options <- function(filename, recursive=TRUE){
 
-  filename <- check_file(filename, recursive=recursive)
-  readfile <- utils::read.csv(filename, header = TRUE, stringsAsFactors = FALSE, check.names=FALSE)
+  filename <- check_file(filename,
+                         recursive=recursive)
+
+  readfile <- utils::read.csv(filename,
+                              header = TRUE,
+                              stringsAsFactors = FALSE,
+                              check.names=FALSE)
 
   return(readfile)
 }
@@ -72,7 +79,9 @@ create_loader_with_options <- function(customloader, recursive=TRUE, ...){
 
   function(filename){
 
-    filename <- check_file(filename, recursive=recursive)
+    filename <- check_file(filename,
+                           recursive=recursive)
+
     readfile <- customloader(filename, ...)
 
     return(readfile)
