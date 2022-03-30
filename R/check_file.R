@@ -8,13 +8,14 @@
 #' is thrown.
 #'
 #' @param filename A character vector of legth one
+#' @param recursive Boolean. Whether to search for alternatives recursively or not
 #'
 #' @return A character vector
 #' @export
 #'
 #' @examples
 #'
-#' check_file("data/my_apples.csv")
+#'# check_file("data/my_apples.csv")
 check_file <- function(filename, recursive=TRUE){
 
   ##### First check file is there and if not suggest alternatives

@@ -7,6 +7,7 @@
 #' alternatives if not.
 #'
 #' @param filename A string of path to Excel file
+#' @param recursive Boolean. Whether to search for alternatives recursively or not
 #'
 #' @return
 #' @export
@@ -30,6 +31,7 @@ read_excel_with_options <- function(filename, recursive=TRUE){
 #'alternatives if not.
 #'
 #' @param filename A string of path to csv file
+#' @param recursive Boolean. Whether to search for alternatives recursively or not
 #'
 #' @return
 #' @export
@@ -63,6 +65,7 @@ read_csv_with_options <- function(filename, recursive=TRUE){
 #' a generic function which loads the file but provides alternatives.
 #'
 #' @param customloader Function for reading a given filetype, e.g. readRDS
+#' @param recursive Boolean. Whether to search for alternatives recursively or not
 #' @param ... Additional parameters to supply to customloader
 #'
 #' @return Function which reads that given filetype but first checks the file

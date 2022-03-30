@@ -8,6 +8,8 @@ read_excel_with_options(filename, recursive = TRUE)
 }
 \arguments{
 \item{filename}{A string of path to Excel file}
+
+\item{recursive}{Boolean. Whether to search for alternatives recursively or not}
 }
 \value{
 

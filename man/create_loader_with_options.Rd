@@ -9,6 +9,8 @@ create_loader_with_options(customloader, recursive = TRUE, ...)
 \arguments{
 \item{customloader}{Function for reading a given filetype, e.g. readRDS}
 
+\item{recursive}{Boolean. Whether to search for alternatives recursively or not}
+
 \item{...}{Additional parameters to supply to customloader}
 }
 \value{

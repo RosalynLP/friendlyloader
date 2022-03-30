@@ -22,7 +22,7 @@ a character vector of the possibilties, prompting the user to pick one. Returns
 the chosen possibility, or if none is chosen returns NA.
 }
 \examples{
-keywords <- c("apple", "orange")
-location <- "data/"
-suggest_alternative_files(keywords, location)
+# keywords <- c("apple", "orange")
+# location <- "data/"
+# suggest_alternative_files(keywords, location)
 }

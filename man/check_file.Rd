@@ -8,6 +8,8 @@ check_file(filename, recursive = TRUE)
 }
 \arguments{
 \item{filename}{A character vector of legth one}
+
+\item{recursive}{Boolean. Whether to search for alternatives recursively or not}
 }
 \value{
 A character vector
@@ -22,5 +24,5 @@ is thrown.
 }
 \examples{
 
-check_file("data/my_apples.csv")
+# check_file("data/my_apples.csv")
 }
