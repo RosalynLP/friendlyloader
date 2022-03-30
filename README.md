@@ -1,6 +1,6 @@
 friendlyloader
 ========
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Public-Health-Scotland/phsmethods)](https://github.com/RosalynLP/friendlyloader/releases/latest)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/RosalynLP/friendlyloader)](https://github.com/RosalynLP/friendlyloader/releases/latest)
 
 The goal of friendlyloader is to help with routine running of scripts 
 where you expect to find a file in a certain location, but where the
