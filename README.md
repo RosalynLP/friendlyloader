@@ -68,11 +68,11 @@ Same as above but use `read_all_sheets()` rather than `read_excel_with_options()
 ### Creating a friendly loader for a different file type
 
 If you want to load a file other than csv or Excel you can easily create your own loader 
-using `read_custom_with_options()`. This takes in a function for loading your desired filetype
+using `create_loader_with_options()`. This takes in a function for loading your desired filetype
 and outputs a friendly version of that function. For example, for loading RDS files using `readRDS()`:
 
 ```r
-read_rds_with_options <- read_custom_with_options(readRDS)
+read_rds_with_options <- create_loader_with_options(readRDS)
 
 read_rds_with_options("Fruits_colours.rds")
 
