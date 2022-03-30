@@ -4,7 +4,7 @@
 \alias{read_excel_with_options}
 \title{Read Excel with options}
 \usage{
-read_excel_with_options(filename)
+read_excel_with_options(filename, recursive = TRUE)
 }
 \arguments{
 \item{filename}{A string of path to Excel file}

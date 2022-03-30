@@ -13,9 +13,9 @@
 #'
 #' @examples
 #'
-read_excel_with_options <- function(filename){
+read_excel_with_options <- function(filename, recursive=TRUE){
 
-  filename <- check_file(filename)
+  filename <- check_file(filename, recursive=recursive)
   readfile <- readxl::read_excel(filename)
 
   return(readfile)
@@ -34,9 +34,9 @@ read_excel_with_options <- function(filename){
 #'
 #' @examples
 #'
-read_csv_with_options <- function(filename){
+read_csv_with_options <- function(filename, recursive=TRUE){
 
-  filename <- check_file(filename)
+  filename <- check_file(filename, recursive=recursive)
   readfile <- utils::read.csv(filename, header = TRUE, stringsAsFactors = FALSE, check.names=FALSE)
 
   return(readfile)
@@ -68,11 +68,11 @@ read_csv_with_options <- function(filename){
 #'
 #' # myrds <- read_rds_with_options("/path/to/rds/myrds.rds")
 #'
-read_custom_with_options <- function(customloader, ...){
+read_custom_with_options <- function(customloader, recursive=TRUE, ...){
 
   function(filename){
 
-    filename <- check_file(filename)
+    filename <- check_file(filename, recursive=recursive)
     readfile <- customloader(filename, ...)
 
     return(readfile)

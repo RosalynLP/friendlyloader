@@ -15,7 +15,7 @@
 #' @examples
 #'
 #' check_file("data/my_apples.csv")
-check_file <- function(filename){
+check_file <- function(filename, recursive=TRUE){
 
   ##### First check file is there and if not suggest alternatives
   if(file.exists(filename) == FALSE){
@@ -25,7 +25,7 @@ check_file <- function(filename){
     keywords <- get_keywords(filename)
 
     # Suggest alternatives based off keywords
-    alternative <- suggest_alternative_files(keywords, dirname(filename))
+    alternative <- suggest_alternative_files(keywords, dirname(filename), recursive=recursive)
 
     if(is.null(alternative)){
 

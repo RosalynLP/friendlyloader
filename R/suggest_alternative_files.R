@@ -29,17 +29,27 @@ suggest_alternative_files <- function(keywords, location, recursive = TRUE){
 
   }
 
-  print(unique(possibilities))
-  user_choice <- readline(
-    prompt="Should I use one of the above files? Type the number to use, or type 'No' and press Enter.     "
-  )
+  if (length(possibilities) == 0){
+    # No alternative files found
+    stop(glue::glue("No alternatives found in directory {location}. Terminating script."))
 
-  tryCatch(expr = {
-    return(possibilities[as.integer(user_choice)])
-  },
-  warning = function(w){
-    file_choice <- NULL
+  } else {
+
+    # Found alternative files
+    message("Should I use one of the files below?")
+    print(tibble(Options = unique(possibilities)))
+    user_choice <- readline(
+      prompt="Type the number to use, or type 'No' and press Enter.     "
+    )
+
+    tryCatch(expr = {
+      return(possibilities[as.integer(user_choice)])
+    },
+    warning = function(w){
+      file_choice <- NULL
+    }
+    )
+
   }
-  )
 
 }
