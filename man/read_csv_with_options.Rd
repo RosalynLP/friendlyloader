@@ -4,7 +4,7 @@
 \alias{read_csv_with_options}
 \title{Read csv with options}
 \usage{
-read_csv_with_options(filename)
+read_csv_with_options(filename, recursive = TRUE)
 }
 \arguments{
 \item{filename}{A string of path to csv file}

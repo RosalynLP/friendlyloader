@@ -4,7 +4,7 @@
 \alias{read_custom_with_options}
 \title{Read custom with options}
 \usage{
-read_custom_with_options(customloader, ...)
+read_custom_with_options(customloader, recursive = TRUE, ...)
 }
 \arguments{
 \item{customloader}{Function for reading a given filetype, e.g. readRDS}

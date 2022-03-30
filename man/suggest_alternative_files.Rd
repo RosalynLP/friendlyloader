@@ -11,7 +11,7 @@ suggest_alternative_files(keywords, location, recursive = TRUE)
 
 \item{location}{A character vector with one element}
 
-\item{recursive}{Boolean}
+\item{recursive}{Boolean for whether to recurse into directories to search}
 }
 \value{
 A character vector or NULL

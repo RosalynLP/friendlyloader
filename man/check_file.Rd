@@ -4,7 +4,7 @@
 \alias{check_file}
 \title{Check File}
 \usage{
-check_file(filename)
+check_file(filename, recursive = TRUE)
 }
 \arguments{
 \item{filename}{A character vector of legth one}
