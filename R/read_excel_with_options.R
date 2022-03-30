@@ -7,6 +7,7 @@
 #' alternatives if not.
 #'
 #' @param filename A string of path to Excel file
+#' @param recursive Boolean. Whether to search for alternatives recursively or not
 #'
 #' @return
 #' @export
@@ -15,7 +16,9 @@
 #'
 read_excel_with_options <- function(filename, recursive=TRUE){
 
-  filename <- check_file(filename, recursive=recursive)
+  filename <- check_file(filename,
+                         recursive=recursive)
+
   readfile <- readxl::read_excel(filename)
 
   return(readfile)
@@ -28,6 +31,7 @@ read_excel_with_options <- function(filename, recursive=TRUE){
 #'alternatives if not.
 #'
 #' @param filename A string of path to csv file
+#' @param recursive Boolean. Whether to search for alternatives recursively or not
 #'
 #' @return
 #' @export
@@ -36,8 +40,13 @@ read_excel_with_options <- function(filename, recursive=TRUE){
 #'
 read_csv_with_options <- function(filename, recursive=TRUE){
 
-  filename <- check_file(filename, recursive=recursive)
-  readfile <- utils::read.csv(filename, header = TRUE, stringsAsFactors = FALSE, check.names=FALSE)
+  filename <- check_file(filename,
+                         recursive=recursive)
+
+  readfile <- utils::read.csv(filename,
+                              header = TRUE,
+                              stringsAsFactors = FALSE,
+                              check.names=FALSE)
 
   return(readfile)
 }
@@ -56,6 +65,7 @@ read_csv_with_options <- function(filename, recursive=TRUE){
 #' a generic function which loads the file but provides alternatives.
 #'
 #' @param customloader Function for reading a given filetype, e.g. readRDS
+#' @param recursive Boolean. Whether to search for alternatives recursively or not
 #' @param ... Additional parameters to supply to customloader
 #'
 #' @return Function which reads that given filetype but first checks the file
@@ -72,7 +82,9 @@ create_loader_with_options <- function(customloader, recursive=TRUE, ...){
 
   function(filename){
 
-    filename <- check_file(filename, recursive=recursive)
+    filename <- check_file(filename,
+                           recursive=recursive)
+
     readfile <- customloader(filename, ...)
 
     return(readfile)

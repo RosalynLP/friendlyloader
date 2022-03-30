@@ -12,9 +12,9 @@
 #' @export
 #'
 #' @examples
-#' keywords <- c("apple", "orange")
-#' location <- "data/"
-#' suggest_alternative_files(keywords, location)
+#' # keywords <- c("apple", "orange")
+#' # location <- "data/"
+#' # suggest_alternative_files(keywords, location)
 suggest_alternative_files <- function(keywords, location, recursive = TRUE){
 
   possibilities <- c()
