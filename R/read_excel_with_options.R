@@ -2,43 +2,70 @@
 
 #' Read Excel with options
 #'
-#' Reads an Excel file.
+#' Reads an Excel file using readxl::read_excel
 #' Checks first whether the file exists and suggests
 #' alternatives if not.
 #'
 #' @param filename A string of path to Excel file
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
+#' @param ... Additional arguments to pass to readxl::read_excel
 #'
 #' @return
 #' @export
 #'
 #' @examples
 #'
-read_excel_with_options <- function(filename, recursive=TRUE){
+read_excel_with_options <- function(filename, recursive=TRUE, ...){
 
   filename <- check_file(filename,
                          recursive=recursive)
 
-  readfile <- readxl::read_excel(filename)
+  readfile <- readxl::read_excel(filename, ...)
+
+  return(readfile)
+}
+
+#' Read Xlsx with options
+#'
+#' Reads an xlsx file using openxlsx::read.xlsx
+#' Checks first whether the file exists and suggests
+#' alternatives if not.
+#'
+#' @param filename A string of path to Excel file
+#' @param recursive Boolean. Whether to search for alternatives recursively or not
+#' @param ... Additional arguments to pass to openxlsx::read.xlsx
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#'
+read_xlsx_with_options <- function(filename, recursive=TRUE, ...){
+
+  filename <- check_file(filename,
+                         recursive=recursive)
+
+  readfile <- openxlsx::read.xlsx(filename, ...)
 
   return(readfile)
 }
 
 #' Read csv with options
 #'
-#'Reads a csv file.
+#'Reads a csv file using utils::read.csv
 #'Checks first whether the file exists and suggests
 #'alternatives if not.
 #'
 #' @param filename A string of path to csv file
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
+#' @param ... Additional argument to pass to utils::read.csv
 #'
 #' @return
 #' @export
 #'
 #' @examples
 #'
-read_csv_with_options <- function(filename, recursive=TRUE){
+read_csv_with_options <- function(filename, recursive=TRUE, ...){
 
   filename <- check_file(filename,
                          recursive=recursive)
@@ -46,7 +73,8 @@ read_csv_with_options <- function(filename, recursive=TRUE){
   readfile <- utils::read.csv(filename,
                               header = TRUE,
                               stringsAsFactors = FALSE,
-                              check.names=FALSE)
+                              check.names=FALSE,
+                              ...)
 
   return(readfile)
 }
