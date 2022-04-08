@@ -4,18 +4,20 @@
 \alias{read_excel_with_options}
 \title{Read Excel with options}
 \usage{
-read_excel_with_options(filename, recursive = TRUE)
+read_excel_with_options(filename, recursive = TRUE, ...)
 }
 \arguments{
 \item{filename}{A string of path to Excel file}
 
 \item{recursive}{Boolean. Whether to search for alternatives recursively or not}
+
+\item{...}{Additional arguments to pass to readxl::read_excel}
 }
 \value{
 
 }
 \description{
-Reads an Excel file.
+Reads an Excel file using readxl::read_excel
 Checks first whether the file exists and suggests
 alternatives if not.
 }
