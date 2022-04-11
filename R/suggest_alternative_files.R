@@ -29,19 +29,29 @@ suggest_alternative_files <- function(keywords, location, recursive = TRUE){
 
   }
 
-  if (length(possibilities) == 0){
-    # No alternative files found
+  if (length(possibilities) == 0){ # No alternative files found
+
     stop(glue::glue("No alternatives found in directory {location}. Terminating script."))
 
-  } else {
+  } else { # Found alternative files
 
-    # Found alternative files
-    message("Should I use one of the files below?")
-    print(tibble::tibble(Options = unique(possibilities)))
-    user_choice <- readline(
-      prompt="Type the number to use, or type 'No' and press Enter.     "
-    )
+    if(interactive()){ # Check whether session is interactive
 
+      message("Should I use one of the files below?")
+      print(tibble::tibble(Options = unique(possibilities)))
+      user_choice <- readline(
+        prompt="Type the number to use, or type 'No' and press Enter.     "
+      )
+
+
+    } else { # If not interactive, choose first option
+
+      message("Choosing first match to filename as session is not interactive")
+      user_choice <- 1
+
+    }
+
+    # Get file choice
     tryCatch(expr = {
       return(possibilities[as.integer(user_choice)])
     },
@@ -49,6 +59,7 @@ suggest_alternative_files <- function(keywords, location, recursive = TRUE){
       file_choice <- NULL
     }
     )
+
 
   }
 
