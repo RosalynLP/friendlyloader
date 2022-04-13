@@ -2,7 +2,7 @@ friendlyloader
 ========
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/RosalynLP/friendlyloader)](https://github.com/RosalynLP/friendlyloader/releases/latest)
 
-The goal of friendlyloader is to help with routine running of scripts 
+The goal of `friendlyloader` is to help with routine running of scripts 
 where you expect to find a file in a certain location, but where the
 name of the file can be subject to minor changes, such as a change in 
 date or using "_" or "-" instead of spaces.
