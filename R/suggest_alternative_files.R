@@ -38,7 +38,10 @@ suggest_alternative_files <- function(keywords, location, recursive = TRUE){
     if(interactive()){ # Check whether session is interactive
 
       message("Should I use one of the files below?")
-      print(tibble::tibble(Options = unique(possibilities)))
+      print(tibble::tibble(Filename = basename(unique(possibilities)),
+                           Subdirectory = gsub(location, '.', dirname(unique(possibilities)))
+                           )
+            )
       user_choice <- readline(
         prompt="Type the number to use, or type 'No' and press Enter.     "
       )

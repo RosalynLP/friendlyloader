@@ -23,6 +23,7 @@ filename.
 Match base filename
 }
 \examples{
-match_base_filename("20220302_Some_File.csv", c("20220304_somefile.csv", "20220302_Some_Other_File.csv"))
+match_base_filename("20220302_Some_File.csv",
+c("20220304_somefile.csv", "20220302_Some_Other_File.csv"))
 
 }
