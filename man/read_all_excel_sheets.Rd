@@ -15,7 +15,7 @@ read_all_excel_sheets(xlsxFile, ...)
 List of contents of each Excel sheet
 }
 \description{
-Reads all sheets of an Excel file to a list.
+Reads all sheets of an Excel file to a list using \code{openxlsx::read.xlsx}.
 Checks the file exists and suggests alternatives if not.
 }
 \examples{

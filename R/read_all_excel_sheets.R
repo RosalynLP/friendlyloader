@@ -1,6 +1,6 @@
 #' Read all Excel sheets
 #'
-#' Reads all sheets of an Excel file to a list.
+#' Reads all sheets of an Excel file to a list using `openxlsx::read.xlsx`.
 #' Checks the file exists and suggests alternatives if not.
 #'
 #' @param xlsxFile String of path to Excel file
