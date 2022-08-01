@@ -104,6 +104,6 @@ Sometimes you want to load a file in a given location but the date of the file i
 openxlsx::read.xlsx(match_base_filename("20220328_fruits_colours.xlsx")
 ```
 
-Note that there can be only one file called *fruits*colours*xlsx in the given directory or else the call to this function is ambiguous and it will fail.
+Note that there can be only one file called \*fruits\*colours\*xlsx in the given directory or else the call to this function is ambiguous and it will fail.
 
 
