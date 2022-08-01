@@ -58,7 +58,7 @@ df <- data.frame (Fruit = c("Apple", "Orange", "Pear"), Colour = c("Red", "Orang
 writexl::write_xlsx(df, "fruits_colours.xlsx")
 
 # Trying to load csv but with slightly wrong filename
-read_excel_with_options("fruits-colours.csv")
+read_excel_with_options("fruits-colours.xlsx")
 
 #>Could not find file fruits-colours.csv. Searching for possible alternatives.
 #>Should I use one of the files below?
@@ -95,5 +95,15 @@ read_rds_with_options("Fruits_colours.rds")
 
 ```
 
+### Matching filenames with dates stripped out
+
+Sometimes you want to load a file in a given location but the date of the file is subject to change. `match_base_filename` allows you to load the  file without triggering an interactive set of options, which can be useful if you are running a server job or Rmarkdown:
+
+```r
+# This will read fruits_colours.xlsx 
+openxlsx::read.xlsx(match_base_filename("20220328_fruits_colours.xlsx")
+```
+
+Note that there can be only one file called *fruits*colours*xlsx in the given directory or else the call to this function is ambiguous and it will fail.
 
 
