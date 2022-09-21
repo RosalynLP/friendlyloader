@@ -4,23 +4,19 @@
 \alias{read_xlsx_with_options}
 \title{Read Xlsx with options}
 \usage{
-read_xlsx_with_options(filename, recursive = TRUE, ...)
+read_xlsx_with_options(filename, recursive = TRUE, useRstudio = TRUE, ...)
 }
 \arguments{
 \item{filename}{A string of path to Excel file}
 
 \item{recursive}{Boolean. Whether to search for alternatives recursively or not}
 
-\item{...}{Additional arguments to pass to openxlsx::read.xlsx}
-}
-\value{
+\item{useRstudio}{Boolean for whether to use interactive R studio to find files}
 
+\item{...}{Additional arguments to pass to openxlsx::read.xlsx}
 }
 \description{
 Reads an xlsx file using openxlsx::read.xlsx
 Checks first whether the file exists and suggests
 alternatives if not.
-}
-\examples{
-
 }

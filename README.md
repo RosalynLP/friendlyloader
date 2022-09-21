@@ -17,9 +17,47 @@ remotes::install_github("RosalynLP/friendlyloader")
 
 ## How to use
 
-### Loading a csv 
+This package includes wrapper functions for `utils::readcsv`, `readxl::read_excel` and `openxlsx::read.xlsx`. Namely:
 
-This is based on the function `utils::read.csv`.
+1. `friendlyloader::read_csv_with_options`
+2. `friendlyloader::read_excel_with_options`
+3. `friendlyloader::read_xlsx_with_options`
+
+You supply the usual arguments to these functions, with the optional additional choices:
+
+* `useRstudio` (default `TRUE`). A boolean indicating whether to pick an alternative file using interactive R Studio windows, or (when set to `FALSE`) whether to use the terminal.
+
+* `recursive` (default `TRUE`). A boolean. Only impactful when `useRstudio == FALSE`. Whether to look for files recursively or only in the chosen directory.
+
+### Creating a friendly loader for a different file type
+
+If you want to load a file other than csv or Excel you can easily create your own loader 
+using `create_loader_with_options()`. This takes in a function for loading your desired filetype
+and outputs a friendly version of that function. For example, for loading RDS files using `readRDS()`:
+
+```r
+read_rds_with_options <- create_loader_with_options(readRDS)
+
+read_rds_with_options("some_arbitrary_file.rds")
+
+```
+
+### Matching filenames with dates stripped out
+
+Sometimes you want to load a file in a given location but the date of the file is subject to change. `match_base_filename` allows you to load the  file without triggering an interactive set of options, which can be useful if you are running a server job or Rmarkdown:
+
+```r
+# This will read fruits_colours.xlsx 
+openxlsx::read.xlsx(match_base_filename("20220328_fruits_colours.xlsx")
+```
+
+Note that there can be only one file called \*fruits\*colours\*xlsx in the given directory or else the call to this function is ambiguous and it will fail.
+
+### Using the terminal selector - when `useRstudio == FALSE`
+
+#### Loading a csv 
+
+This is based on the function `utils::read.csv`
 
 ``` r
 library(friendlyloader)
@@ -45,7 +83,7 @@ read_csv_with_options("20220328_fruits_colours.csv")
 #>
 ```
 
-### Loading the first sheet of an Excel file
+#### Loading the first sheet of an Excel file
 
 There are two options which work in the same way. One is based on the function `readxl::read_excel`, and 
 the other is based on `openxlsx::read.xlsx`. The names of these functions are `read_excel_with_options` and `read_xlsx_with_options`, respectively.
@@ -77,33 +115,9 @@ read_excel_with_options("fruits-colours.xlsx")
 #>
 ```
 
-### Loading all sheets of an Excel file
+#### Loading all sheets of an Excel file
 
 Same as above but use `read_all_excel_sheets()` rather than `read_excel_with_options()`.
 This uses the `openxlsx` package to read the information.
-
-### Creating a friendly loader for a different file type
-
-If you want to load a file other than csv or Excel you can easily create your own loader 
-using `create_loader_with_options()`. This takes in a function for loading your desired filetype
-and outputs a friendly version of that function. For example, for loading RDS files using `readRDS()`:
-
-```r
-read_rds_with_options <- create_loader_with_options(readRDS)
-
-read_rds_with_options("Fruits_colours.rds")
-
-```
-
-### Matching filenames with dates stripped out
-
-Sometimes you want to load a file in a given location but the date of the file is subject to change. `match_base_filename` allows you to load the  file without triggering an interactive set of options, which can be useful if you are running a server job or Rmarkdown:
-
-```r
-# This will read fruits_colours.xlsx 
-openxlsx::read.xlsx(match_base_filename("20220328_fruits_colours.xlsx")
-```
-
-Note that there can be only one file called \*fruits\*colours\*xlsx in the given directory or else the call to this function is ambiguous and it will fail.
 
 

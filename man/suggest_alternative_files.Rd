@@ -4,14 +4,24 @@
 \alias{suggest_alternative_files}
 \title{Suggest alternative files}
 \usage{
-suggest_alternative_files(keywords, location, recursive = TRUE)
+suggest_alternative_files(
+  keywords,
+  location,
+  file_filter = "*",
+  recursive = TRUE,
+  useRstudio = TRUE
+)
 }
 \arguments{
 \item{keywords}{A character vector}
 
 \item{location}{A character vector with one element}
 
+\item{file_filter}{Glob filter to choose which type of files to look for e.g. "*.csv"}
+
 \item{recursive}{Boolean for whether to recurse into directories to search}
+
+\item{useRstudio}{Boolean for whether to use interactive R studio to find files}
 }
 \value{
 A character vector or NULL

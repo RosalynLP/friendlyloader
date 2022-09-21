@@ -4,12 +4,14 @@
 \alias{check_file}
 \title{Check File}
 \usage{
-check_file(filename, recursive = TRUE)
+check_file(filename, recursive = TRUE, useRstudio = TRUE)
 }
 \arguments{
 \item{filename}{A character vector of legth one}
 
 \item{recursive}{Boolean. Whether to search for alternatives recursively or not}
+
+\item{useRstudio}{Boolean for whether to use interactive R studio to find files}
 }
 \value{
 A character vector

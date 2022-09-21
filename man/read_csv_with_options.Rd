@@ -4,23 +4,19 @@
 \alias{read_csv_with_options}
 \title{Read csv with options}
 \usage{
-read_csv_with_options(filename, recursive = TRUE, ...)
+read_csv_with_options(filename, recursive = TRUE, useRstudio = TRUE, ...)
 }
 \arguments{
 \item{filename}{A string of path to csv file}
 
 \item{recursive}{Boolean. Whether to search for alternatives recursively or not}
 
-\item{...}{Additional argument to pass to utils::read.csv}
-}
-\value{
+\item{useRstudio}{Boolean for whether to use interactive R studio to find files}
 
+\item{...}{Additional argument to pass to utils::read.csv}
 }
 \description{
 Reads a csv file using utils::read.csv
 Checks first whether the file exists and suggests
 alternatives if not.
-}
-\examples{
-
 }

@@ -4,16 +4,16 @@
 #' Checks the file exists and suggests alternatives if not.
 #'
 #' @param xlsxFile String of path to Excel file
+#' @param useRstudio Boolean for whether to use interactive R studio to find files
 #' @param ... Additional arguments to pass to openxlsx::read.xlsx
 #'
 #' @return List of contents of each Excel sheet
 #' @export
 #'
-#' @examples
 #'
-read_all_excel_sheets = function(xlsxFile, ...) {
+read_all_excel_sheets = function(xlsxFile, useRstudio=TRUE, ...) {
 
-  xlsxFile <- check_file(xlsxFile)
+  xlsxFile <- check_file(xlsxFile, useRstudio=useRstudio)
 
   ##### Read the excel file
   sheet_names = openxlsx::getSheetNames(xlsxFile)
