@@ -13,14 +13,8 @@ read_csv_with_options(filename, recursive = TRUE, ...)
 
 \item{...}{Additional argument to pass to utils::read.csv}
 }
-\value{
-
-}
 \description{
 Reads a csv file using utils::read.csv
 Checks first whether the file exists and suggests
 alternatives if not.
-}
-\examples{
-
 }

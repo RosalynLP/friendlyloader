@@ -10,10 +10,9 @@
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
 #' @param ... Additional arguments to pass to readxl::read_excel
 #'
-#' @return
+#'
 #' @export
 #'
-#' @examples
 #'
 read_excel_with_options <- function(filename, recursive=TRUE, ...){
 
@@ -35,10 +34,8 @@ read_excel_with_options <- function(filename, recursive=TRUE, ...){
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
 #' @param ... Additional arguments to pass to openxlsx::read.xlsx
 #'
-#' @return
 #' @export
 #'
-#' @examples
 #'
 read_xlsx_with_options <- function(filename, recursive=TRUE, ...){
 
@@ -60,11 +57,9 @@ read_xlsx_with_options <- function(filename, recursive=TRUE, ...){
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
 #' @param ... Additional argument to pass to utils::read.csv
 #'
-#' @return
 #' @export
 #'
-#' @examples
-#'
+
 read_csv_with_options <- function(filename, recursive=TRUE, ...){
 
   filename <- check_file(filename,

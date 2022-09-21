@@ -13,14 +13,8 @@ read_xlsx_with_options(filename, recursive = TRUE, ...)
 
 \item{...}{Additional arguments to pass to openxlsx::read.xlsx}
 }
-\value{
-
-}
 \description{
 Reads an xlsx file using openxlsx::read.xlsx
 Checks first whether the file exists and suggests
 alternatives if not.
-}
-\examples{
-
 }

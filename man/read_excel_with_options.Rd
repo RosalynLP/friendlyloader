@@ -13,14 +13,8 @@ read_excel_with_options(filename, recursive = TRUE, ...)
 
 \item{...}{Additional arguments to pass to readxl::read_excel}
 }
-\value{
-
-}
 \description{
 Reads an Excel file using readxl::read_excel
 Checks first whether the file exists and suggests
 alternatives if not.
-}
-\examples{
-
 }

@@ -9,7 +9,6 @@
 #' @return List of contents of each Excel sheet
 #' @export
 #'
-#' @examples
 #'
 read_all_excel_sheets = function(xlsxFile, ...) {
 

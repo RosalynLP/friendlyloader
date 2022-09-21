@@ -9,6 +9,7 @@
 #'
 #' @param filename A character vector of legth one
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
+#' @param useRstudio Boolean for whether to use interactive R studio to find files
 #'
 #' @return A character vector
 #' @export
@@ -16,25 +17,49 @@
 #' @examples
 #'
 #'# check_file("data/my_apples.csv")
-check_file <- function(filename, recursive=TRUE){
+check_file <- function(filename, recursive=TRUE, useRstudio=TRUE){
 
   ##### First check file is there and if not suggest alternatives
   if(file.exists(filename) == FALSE){
-    message(glue::glue("Could not find file {filename}. Searching for possible alternatives."))
 
-    # Get keyword possibilities based off filename
-    keywords <- get_keywords(filename)
+    if (useRstudio){
 
-    # Suggest alternatives based off keywords
-    alternative <- suggest_alternative_files(keywords,
-                                             dirname(filename),
-                                             recursive=recursive)
+      rstudioapi::showDialog(title="Could not find file",
+                             message=glue::glue("Could not find file {filename}. Redirecting to menu to select an alternative."))
+
+      alternative <- suggest_alternative_files(keywords=NULL,
+                                               dirname(filename),
+                                               file_filter=paste0("(*.", tools::file_ext(filename), ")"),
+                                               recursive=recursive,
+                                               useRstudio=useRstudio)
+
+    } else {
+
+      message(glue::glue("Could not find file {filename}. Searching for possible alternatives."))
+
+      # Get keyword possibilities based off filename
+      keywords <- get_keywords(filename)
+
+      # Suggest alternatives based off keywords
+      alternative <- suggest_alternative_files(keywords,
+                                               dirname(filename),
+                                               recursive=recursive,
+                                               useRstudio=useRstudio)
+
+    }
+
 
     if(is.null(alternative)){
 
-      stop(glue::glue("Could not find file {filename} or suitable alternatives. Terminating script."))
+      if (useRstudio){
+        rstudioapi::showDialog(title="Invalid file selection",
+                               message=glue::glue("Could not find file {filename} or suitable alternatives. Terminating script."))
 
-    } else{
+      } else {
+        stop(glue::glue("Could not find file {filename} or suitable alternatives. Terminating script."))
+      }
+
+    } else {
 
       return(alternative)
 
