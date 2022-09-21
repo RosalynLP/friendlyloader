@@ -4,10 +4,12 @@
 \alias{read_all_excel_sheets}
 \title{Read all Excel sheets}
 \usage{
-read_all_excel_sheets(xlsxFile, ...)
+read_all_excel_sheets(xlsxFile, useRstudio = TRUE, ...)
 }
 \arguments{
 \item{xlsxFile}{String of path to Excel file}
+
+\item{useRstudio}{Boolean for whether to use interactive R studio to find files}
 
 \item{...}{Additional arguments to pass to openxlsx::read.xlsx}
 }

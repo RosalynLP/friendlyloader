@@ -4,12 +4,19 @@
 \alias{create_loader_with_options}
 \title{Create loader with options}
 \usage{
-create_loader_with_options(customloader, recursive = TRUE, ...)
+create_loader_with_options(
+  customloader,
+  recursive = TRUE,
+  useRstudio = TRUE,
+  ...
+)
 }
 \arguments{
 \item{customloader}{Function for reading a given filetype, e.g. readRDS}
 
 \item{recursive}{Boolean. Whether to search for alternatives recursively or not}
+
+\item{useRstudio}{Boolean for whether to use interactive R studio to find files}
 
 \item{...}{Additional parameters to supply to customloader}
 }

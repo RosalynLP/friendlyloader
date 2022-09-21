@@ -8,16 +8,18 @@
 #'
 #' @param filename A string of path to Excel file
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
+#' @param useRstudio Boolean for whether to use interactive R studio to find files
 #' @param ... Additional arguments to pass to readxl::read_excel
 #'
 #'
 #' @export
 #'
 #'
-read_excel_with_options <- function(filename, recursive=TRUE, ...){
+read_excel_with_options <- function(filename, recursive=TRUE, useRstudio=TRUE, ...){
 
   filename <- check_file(filename,
-                         recursive=recursive)
+                         recursive=recursive,
+                         useRstudio=useRstudio)
 
   readfile <- readxl::read_excel(filename, ...)
 
@@ -32,15 +34,17 @@ read_excel_with_options <- function(filename, recursive=TRUE, ...){
 #'
 #' @param filename A string of path to Excel file
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
+#' @param useRstudio Boolean for whether to use interactive R studio to find files
 #' @param ... Additional arguments to pass to openxlsx::read.xlsx
 #'
 #' @export
 #'
 #'
-read_xlsx_with_options <- function(filename, recursive=TRUE, ...){
+read_xlsx_with_options <- function(filename, recursive=TRUE, useRstudio=TRUE, ...){
 
   filename <- check_file(filename,
-                         recursive=recursive)
+                         recursive=recursive,
+                         useRstudio=useRstudio)
 
   readfile <- openxlsx::read.xlsx(filename, ...)
 
@@ -55,15 +59,17 @@ read_xlsx_with_options <- function(filename, recursive=TRUE, ...){
 #'
 #' @param filename A string of path to csv file
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
+#' @param useRstudio Boolean for whether to use interactive R studio to find files
 #' @param ... Additional argument to pass to utils::read.csv
 #'
 #' @export
 #'
 
-read_csv_with_options <- function(filename, recursive=TRUE, ...){
+read_csv_with_options <- function(filename, recursive=TRUE, useRstudio=TRUE, ...){
 
   filename <- check_file(filename,
-                         recursive=recursive)
+                         recursive=recursive,
+                         useRstudio=useRstudio)
 
   readfile <- utils::read.csv(filename,
                               header = TRUE,
@@ -89,6 +95,7 @@ read_csv_with_options <- function(filename, recursive=TRUE, ...){
 #'
 #' @param customloader Function for reading a given filetype, e.g. readRDS
 #' @param recursive Boolean. Whether to search for alternatives recursively or not
+#' @param useRstudio Boolean for whether to use interactive R studio to find files
 #' @param ... Additional parameters to supply to customloader
 #'
 #' @return Function which reads that given filetype but first checks the file
@@ -101,12 +108,13 @@ read_csv_with_options <- function(filename, recursive=TRUE, ...){
 #'
 #' # myrds <- read_rds_with_options("/path/to/rds/myrds.rds")
 #'
-create_loader_with_options <- function(customloader, recursive=TRUE, ...){
+create_loader_with_options <- function(customloader, recursive=TRUE, useRstudio=TRUE, ...){
 
   function(filename){
 
     filename <- check_file(filename,
-                           recursive=recursive)
+                           recursive=recursive,
+                           useRstudio=useRstudio)
 
     readfile <- customloader(filename, ...)
 
