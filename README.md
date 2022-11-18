@@ -96,7 +96,7 @@ df <- data.frame (Fruit = c("Apple", "Orange", "Pear"), Colour = c("Red", "Orang
 writexl::write_xlsx(df, "fruits_colours.xlsx")
 
 # Trying to load csv but with slightly wrong filename
-read_excel_with_options("fruits-colours.xlsx", useRSstudio = FALSE)
+read_excel_with_options("fruits-colours.xlsx", useRstudio = FALSE)
 
 #>Could not find file fruits-colours.csv. Searching for possible alternatives.
 #>Should I use one of the files below?
