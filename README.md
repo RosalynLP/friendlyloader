@@ -48,7 +48,7 @@ Sometimes you want to load a file in a given location but the date of the file i
 
 ```r
 # This will read fruits_colours.xlsx 
-openxlsx::read.xlsx(match_base_filename("20220328_fruits_colours.xlsx")
+openxlsx::read.xlsx(match_base_filename("20220328_fruits_colours.xlsx"))
 ```
 
 Note that there can be only one file called \*fruits\*colours\*xlsx in the given directory or else the call to this function is ambiguous and it will fail.
@@ -67,7 +67,7 @@ df <- data.frame (Fruit = c("Apple", "Orange", "Pear"), Colour = c("Red", "Orang
 write.csv(df, "fruits_colours.csv", row.names = FALSE)
 
 # Trying to load csv but with slightly wrong filename
-read_csv_with_options("20220328_fruits_colours.csv")
+read_csv_with_options("20220328_fruits_colours.csv", useRstudio = FALSE)
 
 #>Could not find file 20220328_fruits_colours.csv. Searching for possible alternatives.
 #>Should I use one of the files below?
@@ -96,7 +96,7 @@ df <- data.frame (Fruit = c("Apple", "Orange", "Pear"), Colour = c("Red", "Orang
 writexl::write_xlsx(df, "fruits_colours.xlsx")
 
 # Trying to load csv but with slightly wrong filename
-read_excel_with_options("fruits-colours.xlsx")
+read_excel_with_options("fruits-colours.xlsx", useRSstudio = FALSE)
 
 #>Could not find file fruits-colours.csv. Searching for possible alternatives.
 #>Should I use one of the files below?
