@@ -53,7 +53,7 @@ openxlsx::read.xlsx(match_base_filename("20220328_fruits_colours.xlsx"))
 
 Note that there can be only one file called \*fruits\*colours\*xlsx in the given directory or else the call to this function is ambiguous and it will fail.
 
-### Using the terminal selector - when `useRstudio == FALSE`
+### Using the terminal selector - when `useRstudio = FALSE`
 
 #### Loading a csv 
 
