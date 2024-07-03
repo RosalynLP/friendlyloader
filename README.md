@@ -53,6 +53,34 @@ openxlsx::read.xlsx(match_base_filename("20220328_fruits_colours.xlsx"))
 
 Note that there can be only one file called \*fruits\*colours\*xlsx in the given directory or else the call to this function is ambiguous and it will fail.
 
+### Creating input/output functions that write/read from a designated folder
+
+Sometimes it is useful to keep a data folder separate from your working directory,
+but in this case reading and writing to this folder can be cumbersome. 
+
+You can use the `create_location_io()` function to create a version of a given 
+input/output function which is linked to a given location that is not your 
+working directory. For example
+
+```r
+# Create tmp directory
+system("mkdir tmp")
+# Make function
+create_location_io(readr::read_csv, "tmp", prefix="custom")
+```
+
+This generates a function called `custom_read_csv()` which acts just like 
+`readr::read_csv()` but reads from the `tmp` directory instead of the working
+directory. 
+
+The name of the generated function is composed of the `prefix` plus `_` plus the
+name of the function to be wrapped, not including the package - i.e. just
+`read_csv` rather than `readr::read_csv`.
+
+If the function you are wrapping contains "read", "write" or "save" in the name,
+you don't have to specify whether it's an input or an output function. If not,
+you can specify using the `io` argument.
+
 ### Using the terminal selector - when `useRstudio = FALSE`
 
 #### Loading a csv 
@@ -119,5 +147,6 @@ read_excel_with_options("fruits-colours.xlsx", useRstudio = FALSE)
 
 Same as above but use `read_all_excel_sheets()` rather than `read_excel_with_options()`.
 This uses the `openxlsx` package to read the information.
+
 
 
