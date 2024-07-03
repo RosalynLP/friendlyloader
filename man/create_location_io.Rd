@@ -43,7 +43,7 @@ than the working directory. The new function is saved out with the same name
 as the input function prefixed by \code{prefix_}.
 }
 \details{
-This function is used for it's side effects. It assigns a wrapped function
+This function is used for its side effects. It assigns a wrapped function
 to an \code{environment}, by default the \code{global environment}.
 
 The functions created by \code{create_location_io} can be used in just the

@@ -6,7 +6,7 @@
 #' than the working directory. The new function is saved out with the same name
 #' as the input function prefixed by \code{prefix_}.
 #'
-#' This function is used for it's side effects. It assigns a wrapped function
+#' This function is used for its side effects. It assigns a wrapped function
 #' to an \code{environment}, by default the \code{global environment}.
 #'
 #' The functions created by \code{create_location_io} can be used in just the
@@ -151,7 +151,7 @@ create_location_io <- function(startfun, data_folder, io = c("read", "write"),
 
     if(io != io_derived) {
       # io disagrees with io_derived. Ask the user if they want to continue.
-      continue <- ask_edris_user(
+      continue <- rstudioapi::showQuestion(
         title = "Warning",
         message = glue::glue("io is set to {io} but function {funname} ",
                              "has {io_derived} in the name. ",

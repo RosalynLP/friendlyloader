@@ -16,4 +16,5 @@ Imports:
     utils,
     openxlsx,
     readxl,
-    tibble
+    tibble,
+    rstudioapi
