@@ -1,6 +1,6 @@
 Package: friendlyloader
 Title: Helper functions for loading and saving data
-Version: 0.0.0.9000
+Version: 3.0.0
 Authors@R: 
     person("Rosalyn", "Pearson", , "rosalyn.pearson@phs.scot", role = c("aut", "cre"))
 Description: Helps routine loading of Excel and csv files with names that are subject to small changes.
