@@ -9,6 +9,7 @@ create_location_io(
   data_folder,
   io = c("read", "write"),
   prefix = "project",
+  useRstudio = TRUE,
   env = globalenv(),
   ...
 )
@@ -26,6 +27,9 @@ name of \code{startfun}. \code{io} can also be abbreviated to "r" or "w"}
 
 \item{prefix}{\code{character} string giving the prefix for the name of the
 new function. Defaults to 'project'}
+
+\item{useRstudio}{\code{bool} (TRUE/FALSE) for whether to use interactive R
+Studio prompts or to use the console instead}
 
 \item{env}{\code{environment} to add the new function to. Defaults to
 \code{globalenv()}}

@@ -35,6 +35,8 @@
 #' name of \code{startfun}. \code{io} can also be abbreviated to "r" or "w"
 #' @param prefix \code{character} string giving the prefix for the name of the
 #' new function. Defaults to 'project'
+#' @param useRstudio \code{bool} (TRUE/FALSE) for whether to use interactive R
+#' Studio prompts or to use the console instead
 #' @param env \code{environment} to add the new function to. Defaults to
 #' \code{globalenv()}
 #' @param ... other parameters to pass to \code{startfun}
@@ -66,7 +68,9 @@
 #'
 #' @export
 create_location_io <- function(startfun, data_folder, io = c("read", "write"),
-                              prefix = "project", env = globalenv(), ...){
+                              prefix = "project",
+                              useRstudio = TRUE,
+                              env = globalenv(), ...){
 
   ## Argument testing
 
@@ -151,12 +155,20 @@ create_location_io <- function(startfun, data_folder, io = c("read", "write"),
 
     if(io != io_derived) {
       # io disagrees with io_derived. Ask the user if they want to continue.
-      continue <- rstudioapi::showQuestion(
-        title = "Warning",
-        message = glue::glue("io is set to {io} but function {funname} ",
+      ask_user <- glue::glue("io is set to {io} but function {funname} ",
                              "has {io_derived} in the name. ",
-                             "Do you wish to continue?"),
-        ok = "Yes", cancel = "No")
+                             "Do you wish to continue?")
+      if(useRstudio){
+        continue <- rstudioapi::showQuestion(
+          title = "Warning",
+          message = ask_user,
+          ok = "Yes", cancel = "No")
+      } else {
+          continue <- readline(
+            prompt= paste(ask_user, "Y/N:   ")
+          )
+          continue <- ifelse((continue %in% c("Y", "y")), TRUE, FALSE)
+        }
 
       if(!continue){
         stop("Terminating call to create_location_io. No io created.")
